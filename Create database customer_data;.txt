@@ -1,0 +1,30 @@
+Create database customer_data;
+use customer_data;
+
+select * from customer_churn;
+
+-- is the customer above the age of 40 is a senior citizen 
+select age,senior_citizen
+from customer_churn
+where age> 40;
+-- SHow the gender between the age of 20 to 40
+select gender,age
+from customer_churn
+where age between 20 and 40;
+-- Show the married yes and the sum of age 
+select married,sum(age)
+from customer_churn
+where married="yes"
+group by Married;
+
+-- Show the average age, dependent and married no
+select gender,married,dependents,avg(age)
+from customer_churn
+where married="No"
+group by gender,dependents;
+
+-- Show for partner yes and total number of dependent 
+select partner,sum(dependents)
+from customer_churn
+where partner="yes"
+
